@@ -1,0 +1,37 @@
+{
+  "weights": {
+    "trend_momentum": 25,
+    "fundamentals": 25,
+    "news_sentiment": 20,
+    "earnings_context": 15,
+    "risk_volatility": 15
+  },
+  "rating_thresholds": {
+    "buy_min": 65,
+    "hold_min": 45
+  },
+  "score_bounds": {
+    "min": 0,
+    "max": 100
+  },
+  "target_price": {
+    "neutral_score": 50,
+    "return_per_score_point": 0.35,
+    "min_return_pct": -20,
+    "max_return_pct": 25
+  },
+  "risk_level_thresholds": {
+    "low_risk_min": 70,
+    "medium_risk_min": 40
+  },
+  "reason_generation": {
+    "top_positive_reasons": 3,
+    "top_negative_factors": 2
+  },
+  "safety_guards": {
+    "max_daily_score_change": 10,
+    "manual_overrides": {
+      "disable_score_change_cap": false
+    }
+  }
+}

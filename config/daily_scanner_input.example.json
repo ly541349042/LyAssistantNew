@@ -1,0 +1,90 @@
+{
+  "report_date": "2026-01-15",
+  "market_overview": {
+    "nasdaq_trend_bias": "Bullish",
+    "tech_sector_sentiment": "Positive"
+  },
+  "earnings_watchlist": [
+    {
+      "ticker": "NFLX",
+      "earnings_date": "2026-01-20",
+      "window": "approaching"
+    },
+    {
+      "ticker": "TSLA",
+      "earnings_date": "2026-01-22",
+      "window": "approaching"
+    }
+  ],
+  "strategy_evolution_notes": {
+    "worked": "Momentum + fundamentals signals outperformed over recent sessions.",
+    "failed": "High-volatility breakouts underperformed in the last week."
+  },
+  "stocks": [
+    {
+      "ticker": "AAPL",
+      "mode": "PRE_EARNINGS",
+      "current_price": 195.2,
+      "scores": {
+        "trend_momentum": 78,
+        "fundamentals": 81,
+        "news_sentiment": 72,
+        "earnings_context_pre": 75,
+        "earnings_context_post": 60,
+        "risk_volatility": 66
+      }
+    },
+    {
+      "ticker": "NVDA",
+      "mode": "POST_EARNINGS",
+      "current_price": 875.0,
+      "scores": {
+        "trend_momentum": 84,
+        "fundamentals": 88,
+        "news_sentiment": 76,
+        "earnings_context_pre": 70,
+        "earnings_context_post": 80,
+        "risk_volatility": 58
+      }
+    },
+    {
+      "ticker": "META",
+      "mode": "PRE_EARNINGS",
+      "current_price": 505.0,
+      "scores": {
+        "trend_momentum": 64,
+        "fundamentals": 70,
+        "news_sentiment": 61,
+        "earnings_context_pre": 67,
+        "earnings_context_post": 55,
+        "risk_volatility": 41
+      }
+    },
+    {
+      "ticker": "TSLA",
+      "mode": "PRE_EARNINGS",
+      "current_price": 220.0,
+      "scores": {
+        "trend_momentum": 38,
+        "fundamentals": 42,
+        "news_sentiment": 35,
+        "earnings_context_pre": 40,
+        "earnings_context_post": 32,
+        "risk_volatility": 25
+      }
+    },
+    {
+      "ticker": "NFLX",
+      "mode": "POST_EARNINGS",
+      "current_price": 610.0,
+      "scores": {
+        "trend_momentum": 59,
+        "fundamentals": 65,
+        "news_sentiment": 57,
+        "earnings_context_pre": 48,
+        "earnings_context_post": 62,
+        "risk_volatility": 47
+      }
+    }
+  ]
+}
