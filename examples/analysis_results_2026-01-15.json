@@ -1,0 +1,97 @@
+[
+  {
+    "ticker": "AAPL",
+    "mode": "PRE_EARNINGS",
+    "score": 75,
+    "rating": "BUY",
+    "current_price": 195.2,
+    "target_price": 212.28,
+    "expected_return_pct": 8.8,
+    "risk_level": "Medium",
+    "key_reasons": [
+      "Fundamentals contributed +20.25 points",
+      "Trend Momentum contributed +19.50 points",
+      "News Sentiment contributed +14.40 points"
+    ],
+    "invalidating_factors": [
+      "Weak Risk Volatility contribution (9.90 points)",
+      "Weak Earnings Context contribution (11.25 points)"
+    ]
+  },
+  {
+    "ticker": "NVDA",
+    "mode": "POST_EARNINGS",
+    "score": 79,
+    "rating": "BUY",
+    "current_price": 875.0,
+    "target_price": 963.81,
+    "expected_return_pct": 10.1,
+    "risk_level": "Medium",
+    "key_reasons": [
+      "Fundamentals contributed +22.00 points",
+      "Trend Momentum contributed +21.00 points",
+      "News Sentiment contributed +15.20 points"
+    ],
+    "invalidating_factors": [
+      "Weak Risk Volatility contribution (8.70 points)",
+      "Weak Earnings Context contribution (12.00 points)"
+    ]
+  },
+  {
+    "ticker": "META",
+    "mode": "PRE_EARNINGS",
+    "score": 62,
+    "rating": "HOLD",
+    "current_price": 505.0,
+    "target_price": 526.21,
+    "expected_return_pct": 4.2,
+    "risk_level": "Medium",
+    "key_reasons": [
+      "Fundamentals contributed +17.50 points",
+      "Trend Momentum contributed +16.00 points",
+      "News Sentiment contributed +12.20 points"
+    ],
+    "invalidating_factors": [
+      "Weak Risk Volatility contribution (6.15 points)",
+      "Weak Earnings Context contribution (10.05 points)"
+    ]
+  },
+  {
+    "ticker": "TSLA",
+    "mode": "PRE_EARNINGS",
+    "score": 37,
+    "rating": "SELL",
+    "current_price": 220.0,
+    "target_price": 209.99,
+    "expected_return_pct": -4.5,
+    "risk_level": "High",
+    "key_reasons": [
+      "Fundamentals contributed +10.50 points",
+      "Trend Momentum contributed +9.50 points",
+      "News Sentiment contributed +7.00 points"
+    ],
+    "invalidating_factors": [
+      "Weak Risk Volatility contribution (3.75 points)",
+      "Weak Earnings Context contribution (6.00 points)"
+    ]
+  },
+  {
+    "ticker": "NFLX",
+    "mode": "POST_EARNINGS",
+    "score": 59,
+    "rating": "HOLD",
+    "current_price": 610.0,
+    "target_price": 629.22,
+    "expected_return_pct": 3.1,
+    "risk_level": "Medium",
+    "key_reasons": [
+      "Fundamentals contributed +16.25 points",
+      "Trend Momentum contributed +14.75 points",
+      "News Sentiment contributed +11.40 points"
+    ],
+    "invalidating_factors": [
+      "Weak Risk Volatility contribution (7.05 points)",
+      "Weak Earnings Context contribution (9.30 points)"
+    ]
+  }
+]

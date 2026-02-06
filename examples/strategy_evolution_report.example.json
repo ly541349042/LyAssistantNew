@@ -1,0 +1,190 @@
+{
+  "strategy_evolution_report": {
+    "cooldown_active": false,
+    "what_worked_recently": [
+      "risk_volatility",
+      "trend_momentum"
+    ],
+    "what_failed": [
+      "earnings_context",
+      "fundamentals",
+      "news_sentiment"
+    ],
+    "old_weights": {
+      "trend_momentum": 25,
+      "fundamentals": 25,
+      "news_sentiment": 20,
+      "earnings_context": 15,
+      "risk_volatility": 15
+    },
+    "new_weights": {
+      "trend_momentum": 26,
+      "fundamentals": 24,
+      "news_sentiment": 19,
+      "earnings_context": 15,
+      "risk_volatility": 16
+    },
+    "applied_changes": [
+      {
+        "strategy_id": "earnings_context",
+        "weight_key": "earnings_context",
+        "old_weight": 15,
+        "new_weight": 13,
+        "reason": "degraded performance detected"
+      },
+      {
+        "strategy_id": "fundamentals",
+        "weight_key": "fundamentals",
+        "old_weight": 25,
+        "new_weight": 23,
+        "reason": "degraded performance detected"
+      },
+      {
+        "strategy_id": "news_sentiment",
+        "weight_key": "news_sentiment",
+        "old_weight": 20,
+        "new_weight": 18,
+        "reason": "degraded performance detected"
+      }
+    ],
+    "performance_details": {
+      "earnings_context": {
+        "strategy_id": "earnings_context",
+        "metrics": {
+          "1d": {
+            "trade_count": 5,
+            "win_rate": 0.0,
+            "avg_return_pct": -0.4,
+            "benchmark_return_pct": 0.15
+          },
+          "5d": {
+            "trade_count": 5,
+            "win_rate": 0.4,
+            "avg_return_pct": -0.04,
+            "benchmark_return_pct": 0.6
+          },
+          "20d": {
+            "trade_count": 5,
+            "win_rate": 1.0,
+            "avg_return_pct": 0.68,
+            "benchmark_return_pct": 2.5
+          }
+        },
+        "degraded": true,
+        "degraded_reasons": [
+          "1d win_rate 0.00% below threshold 40.00%",
+          "1d avg_return -0.40% below benchmark 0.15%",
+          "5d avg_return -0.04% below benchmark 0.60%",
+          "20d avg_return 0.68% below benchmark 2.50%"
+        ]
+      },
+      "fundamentals": {
+        "strategy_id": "fundamentals",
+        "metrics": {
+          "1d": {
+            "trade_count": 5,
+            "win_rate": 0.6,
+            "avg_return_pct": 0.08,
+            "benchmark_return_pct": 0.15
+          },
+          "5d": {
+            "trade_count": 5,
+            "win_rate": 1.0,
+            "avg_return_pct": 1.0,
+            "benchmark_return_pct": 0.6
+          },
+          "20d": {
+            "trade_count": 5,
+            "win_rate": 1.0,
+            "avg_return_pct": 3.1,
+            "benchmark_return_pct": 2.5
+          }
+        },
+        "degraded": true,
+        "degraded_reasons": [
+          "1d avg_return 0.08% below benchmark 0.15%"
+        ]
+      },
+      "news_sentiment": {
+        "strategy_id": "news_sentiment",
+        "metrics": {
+          "1d": {
+            "trade_count": 5,
+            "win_rate": 0.2,
+            "avg_return_pct": -0.26,
+            "benchmark_return_pct": 0.15
+          },
+          "5d": {
+            "trade_count": 5,
+            "win_rate": 0.4,
+            "avg_return_pct": -0.06,
+            "benchmark_return_pct": 0.6
+          },
+          "20d": {
+            "trade_count": 5,
+            "win_rate": 1.0,
+            "avg_return_pct": 0.8,
+            "benchmark_return_pct": 2.5
+          }
+        },
+        "degraded": true,
+        "degraded_reasons": [
+          "1d win_rate 20.00% below threshold 40.00%",
+          "1d avg_return -0.26% below benchmark 0.15%",
+          "5d avg_return -0.06% below benchmark 0.60%",
+          "20d avg_return 0.80% below benchmark 2.50%"
+        ]
+      },
+      "risk_volatility": {
+        "strategy_id": "risk_volatility",
+        "metrics": {
+          "1d": {
+            "trade_count": 5,
+            "win_rate": 1.0,
+            "avg_return_pct": 0.3,
+            "benchmark_return_pct": 0.15
+          },
+          "5d": {
+            "trade_count": 5,
+            "win_rate": 1.0,
+            "avg_return_pct": 0.88,
+            "benchmark_return_pct": 0.6
+          },
+          "20d": {
+            "trade_count": 5,
+            "win_rate": 1.0,
+            "avg_return_pct": 2.72,
+            "benchmark_return_pct": 2.5
+          }
+        },
+        "degraded": false,
+        "degraded_reasons": []
+      },
+      "trend_momentum": {
+        "strategy_id": "trend_momentum",
+        "metrics": {
+          "1d": {
+            "trade_count": 5,
+            "win_rate": 0.8,
+            "avg_return_pct": 0.38,
+            "benchmark_return_pct": 0.15
+          },
+          "5d": {
+            "trade_count": 5,
+            "win_rate": 1.0,
+            "avg_return_pct": 1.16,
+            "benchmark_return_pct": 0.6
+          },
+          "20d": {
+            "trade_count": 5,
+            "win_rate": 1.0,
+            "avg_return_pct": 3.42,
+            "benchmark_return_pct": 2.5
+          }
+        },
+        "degraded": false,
+        "degraded_reasons": []
+      }
+    }
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "http_status": 200,
+  "response": {
+    "ticker": "AAPL",
+    "mode": "PRE_EARNINGS",
+    "score": 75,
+    "rating": "BUY",
+    "current_price": 195.2,
+    "target_price": 212.28,
+    "expected_return_pct": 8.8,
+    "risk_level": "Medium",
+    "key_reasons": [
+      "Fundamentals contributed +20.25 points",
+      "Trend Momentum contributed +19.50 points",
+      "News Sentiment contributed +14.40 points"
+    ],
+    "invalidating_factors": [
+      "Weak Risk Volatility contribution (9.90 points)",
+      "Weak Earnings Context contribution (11.25 points)"
+    ],
+    "strategy_parameters": {
+      "risk_tolerance": "medium",
+      "time_horizon": "swing",
+      "expected_profit_target": "10%"
+    }
+  }
+}

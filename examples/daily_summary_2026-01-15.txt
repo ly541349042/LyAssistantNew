@@ -1,0 +1,1 @@
+Analyzed 5 stocks. Top pick: NVDA (score 79, rating BUY, expected return 10.1%).

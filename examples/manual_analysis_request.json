@@ -1,0 +1,18 @@
+{
+  "ticker": "AAPL",
+  "mode": "PRE_EARNINGS",
+  "current_price_override": 195.2,
+  "strategy_parameters": {
+    "risk_tolerance": "medium",
+    "time_horizon": "swing",
+    "expected_profit_target": "10%"
+  },
+  "component_scores": {
+    "trend_momentum": 78,
+    "fundamentals": 81,
+    "news_sentiment": 72,
+    "earnings_context_pre": 75,
+    "earnings_context_post": 60,
+    "risk_volatility": 66
+  }
+}

@@ -1,0 +1,101 @@
+name: Daily NASDAQ Scanner
+
+on:
+  schedule:
+    # Default schedule: 12:00 UTC on weekdays (~08:00 US/Eastern during DST, pre-market).
+    - cron: '0 12 * * 1-5'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+env:
+  SCANNER_COMMAND: ${{ vars.SCANNER_COMMAND || 'bash scripts/run_daily_scanner.sh' }}
+  DASHBOARD_COMMAND: ${{ vars.DASHBOARD_COMMAND || 'bash scripts/generate_dashboard.sh' }}
+  EMAIL_COMMAND: ${{ vars.EMAIL_COMMAND || 'python scripts/send_dashboard_email.py' }}
+  SCANNER_INPUT_PATH: ${{ vars.SCANNER_INPUT_PATH || 'config/daily_scanner_input.example.json' }}
+  SCANNER_OUTPUT_PATH: ${{ vars.SCANNER_OUTPUT_PATH || 'artifacts/scanner_output.json' }}
+  ANALYSIS_OUTPUT_PATH: ${{ vars.ANALYSIS_OUTPUT_PATH || 'artifacts/analysis_results.json' }}
+  SANITY_REPORT_PATH: ${{ vars.SANITY_REPORT_PATH || 'artifacts/sanity_report.json' }}
+  HEALTH_SCORE_PATH: ${{ vars.HEALTH_SCORE_PATH || 'artifacts/health_score.json' }}
+  HEALTH_HISTORY_PATH: ${{ vars.HEALTH_HISTORY_PATH || 'artifacts/health_history.json' }}
+  DASHBOARD_OUTPUT_PATH: ${{ vars.DASHBOARD_OUTPUT_PATH || 'artifacts/daily_dashboard.md' }}
+  DASHBOARD_SUMMARY_PATH: ${{ vars.DASHBOARD_SUMMARY_PATH || 'artifacts/daily_summary.txt' }}
+  DASHBOARD_ARTIFACT_NAME: ${{ vars.DASHBOARD_ARTIFACT_NAME || 'daily-dashboard' }}
+  DASHBOARD_EMAIL_SUBJECT: ${{ vars.DASHBOARD_EMAIL_SUBJECT || 'Daily NASDAQ Scanner Dashboard' }}
+  SMTP_USE_TLS: ${{ vars.SMTP_USE_TLS || 'true' }}
+
+jobs:
+  run-daily-scanner:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Run daily scanner
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p artifacts
+          eval "${SCANNER_COMMAND}"
+
+      - name: Generate daily dashboard
+        shell: bash
+        run: |
+          set -euo pipefail
+          eval "${DASHBOARD_COMMAND}"
+
+      - name: Validate output artifacts
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -f "${SCANNER_OUTPUT_PATH}"
+          test -f "${ANALYSIS_OUTPUT_PATH}"
+          test -f "${SANITY_REPORT_PATH}"
+          test -f "${HEALTH_SCORE_PATH}"
+          test -f "${HEALTH_HISTORY_PATH}"
+          test -f "${DASHBOARD_OUTPUT_PATH}"
+          test -f "${DASHBOARD_SUMMARY_PATH}"
+
+      - name: Health score gate
+        shell: bash
+        run: |
+          set -euo pipefail
+          # Gate behavior:
+          # - <50 fails the workflow (no trading recommendations sent).
+          # - 50-69 and 70-84 emit warnings but allow the workflow to continue.
+          # - >=85 proceeds normally.
+          python scripts/health_score_gate.py "${HEALTH_SCORE_PATH}"
+
+      - name: Upload dashboard artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ env.DASHBOARD_ARTIFACT_NAME }}
+          path: |
+            ${{ env.SCANNER_OUTPUT_PATH }}
+            ${{ env.ANALYSIS_OUTPUT_PATH }}
+            ${{ env.SANITY_REPORT_PATH }}
+            ${{ env.HEALTH_SCORE_PATH }}
+            ${{ env.HEALTH_HISTORY_PATH }}
+            ${{ env.DASHBOARD_OUTPUT_PATH }}
+            ${{ env.DASHBOARD_SUMMARY_PATH }}
+          if-no-files-found: error
+
+      - name: Send dashboard email
+        env:
+          SMTP_SERVER_ADDRESS: ${{ secrets.SMTP_SERVER_ADDRESS }}
+          SMTP_SERVER_PORT: ${{ secrets.SMTP_SERVER_PORT }}
+          SMTP_USERNAME: ${{ secrets.SMTP_USERNAME }}
+          SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
+          DASHBOARD_EMAIL_FROM: ${{ vars.DASHBOARD_EMAIL_FROM }}
+          DASHBOARD_EMAIL_TO: ${{ vars.DASHBOARD_EMAIL_TO }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          eval "${EMAIL_COMMAND}"

@@ -1,0 +1,18 @@
+{
+  "rules": {
+    "rating_thresholds": {
+      "buy_min": 65,
+      "hold_min": 45
+    },
+    "target_return_tolerance_pct": 0.25
+  },
+  "health_score": {
+    "penalties": {
+      "per_violation": 5
+    },
+    "violation_cap": 5
+  },
+  "behavior_controls": {
+    "block_buy_below_health_score": 70
+  }
+}

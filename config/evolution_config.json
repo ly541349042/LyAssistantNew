@@ -1,0 +1,37 @@
+{
+  "tracking_horizons": [
+    "1d",
+    "5d",
+    "20d"
+  ],
+  "degradation": {
+    "window_size": 20,
+    "min_trades_required": 5,
+    "win_rate_threshold": 0.4,
+    "benchmark_return_by_horizon": {
+      "1d": 0.15,
+      "5d": 0.6,
+      "20d": 2.5
+    }
+  },
+  "weight_adjustment": {
+    "step_pct": 2,
+    "max_total_adjustment_pct": 6,
+    "min_weight": 5,
+    "max_weight": 45
+  },
+  "strategy_to_weight_key": {
+    "trend_momentum": "trend_momentum",
+    "fundamentals": "fundamentals",
+    "news_sentiment": "news_sentiment",
+    "earnings_context": "earnings_context",
+    "risk_volatility": "risk_volatility"
+  },
+  "safety_guards": {
+    "cooldown_days": 5,
+    "manual_overrides": {
+      "disable_evolution_cooldown": false,
+      "disable_weight_updates": false
+    }
+  }
+}
